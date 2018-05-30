@@ -18,13 +18,15 @@ def commands(commands_list):
     completed_commands = 0
     index = 0
     while(completed_commands < len(commands_list)):
+        #Reset the index number when it overflows.
         if(index == len(commands_list)):
             index = 0
+
+        #Collect and count the completed commands
         if(end_output[index].poll() != None and completed[index] == False):
             timing[index] = time.time() - timing[index]
             completed_commands += 1
             completed[index] = True
-            #print(timing[index])
         index += 1
 
 
